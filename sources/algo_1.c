@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:37:14 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:52:31 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:46:47 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 t_node	*get_under(t_node *node, t_node **head)
 {
 	t_node	*current;
+	t_node	*under;
 
+	under = malloc(sizeof(t_node *));
 	current = (*head);
-	while (current && current->value > node->value)
+	under->value = INT_MIN;
+	under->next = NULL;
+	under->stack = 'b';
+	while (current)
+	{
+		if (current->value < node->value)
+		{
+			if (under->value < current->value)
+				under = current;
+		}
 		current = current->next;
-	return (current);
-}
-
-t_node	*get_upper(t_node *node, t_node **head)
-{
-	t_node	*current;
-
-	current = (*head);
-	while (current && current->value < node->value)
-		current = current->next;
-	return (current);
+	}
+	return (under);
 }
 
 int	rotation_sense(t_node **head, t_node *target)

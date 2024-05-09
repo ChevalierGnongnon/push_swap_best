@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:35:55 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/04 08:56:00 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/09 15:19:47 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,15 @@ void	replace_in_a(t_node **stack_a, t_node **stack_b)
 
 void	do_best(t_node **stack_a, t_node **stack_b, t_node *best)
 {
-	if (get_min(stack_b)->value > best->value)
-	{
-		go_up(stack_a, best);
-		push(stack_a, stack_b);
-	}
-	else if (get_max(stack_b)->value < best->value)
-	{
-		go_up(stack_a, best);
-		push(stack_a, stack_b);
-	}
+	go_up(stack_a, best);
+	if (best->value > get_max(stack_b)->value
+		|| best->value < get_min(stack_b)->value)
+		go_up(stack_b, get_max(stack_b));
 	else
-	{
-		while ((*stack_a) != best)
-			rotate(stack_a);
-		while ((*stack_b) != get_under(best, stack_b))
-			rotate(stack_b);
-		push(stack_a, stack_b);
-	}
-}	
+		go_up(stack_b, get_under(best, stack_b));
+	push(stack_a, stack_b);
+
+}
 
 void	big_sort(t_node **stack_a, t_node **stack_b)
 {
@@ -78,11 +68,9 @@ void	big_sort(t_node **stack_a, t_node **stack_b)
 			best = get_best(stack_a, stack_b);
 			do_best(stack_a, stack_b, best);
 		}
-		while ((*stack_b) != get_max(stack_b))
-			rotate(stack_b);
 	}
+	go_up(stack_b, get_max(stack_b));
 	small_sort(stack_a);
 	replace_in_a(stack_a, stack_b);
-	while (get_place(stack_a, get_min(stack_a)->value) != 1)
-		reverse_rotate(stack_a);
+	go_up(stack_a, get_min(stack_a));
 }

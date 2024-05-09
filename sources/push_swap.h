@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:14:26 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/01 17:16:34 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/09 13:34:39 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 typedef struct s_node
 {
 	int				value;
-	int				pos_finale;
-	int				pos_actuelle;
 	char			stack;
-	int				cout;
 	struct s_node	*next;
 }	t_node;
 
