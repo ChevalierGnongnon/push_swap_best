@@ -10,6 +10,8 @@ SOURCES = sources/main.c \
 			sources/algo_1.c \
 			sources/algo_2.c \
 			sources/small_sort.c \
+			sources/do_rotates.c \
+			sources/do_swap.c \
 			sources/counting.c
 			
 OBJS = $(SOURCES:.c=.o)

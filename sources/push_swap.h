@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:14:26 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/09 13:34:39 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:28:49 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,12 @@ void	big_sort(t_node **stack_a, t_node **stack_b);
 t_node	*get_min(t_node **head);
 t_node	*get_max(t_node **head);
 void	try_algo(t_node **stack_a, t_node **stack_b);
+
+void	do_swap(t_node **stack);
+void	do_double_swap(t_node **stack_a, t_node **stack_b);
+void	do_rotate(t_node **stack);
+void	do_double_rotate(t_node **stack_a, t_node **stack_b);
+void	do_reverse_rotate(t_node **stack);
+void	do_double_reverse_rotate(t_node **stack_a, t_node **stack_b);
 
 #endif

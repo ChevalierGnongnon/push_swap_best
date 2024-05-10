@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commands_2.c                                       :+:      :+:    :+:   */
+/*   do_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 23:05:35 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/10 11:39:10 by chhoflac         ###   ########.fr       */
+/*   Created: 2024/05/10 11:40:48 by chhoflac          #+#    #+#             */
+/*   Updated: 2024/05/10 11:49:40 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_node **stack)
+void	do_swap(t_node **stack)
 {
-	t_node	*new_first;
-	t_node	*last;
+	swap(stack);
+	ft_printf("s%c\n", (*stack)->stack);
+}
 
-	last = (*stack);
-	while (last->next->next)
-		last = last->next;
-	new_first = last->next;
-	last->next = NULL;
-	new_first->next = (*stack);
-	(*stack) = new_first;
+void	do_double_swap(t_node **stack_a, t_node **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
 }

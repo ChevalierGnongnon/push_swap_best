@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:13:02 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/10 09:27:08 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:48:25 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,7 @@ void	swap(t_node **stack)
 		(*stack)->next = (*stack)->next->next;
 		temp_node->next = (*stack);
 		(*stack) = temp_node;
-		ft_printf("s%c\n", (*stack)->stack);
 	}
-}
-
-int	double_swap(t_node **stack_1, t_node **stack_2)
-{
-	if ((stack_1 && (*stack_1)->next) && (stack_2 && (*stack_2)->next))
-	{
-		swap(stack_1);
-		swap(stack_2);
-		ft_printf("ss\n");
-	}
-	return (0);
 }
 
 void	push(t_node **from, t_node **to)
@@ -64,12 +52,4 @@ void	rotate(t_node **stack)
 	last = get_last(stack);
 	temp->next = NULL;
 	last->next = temp;
-	ft_printf("r%c\n", (*stack)->stack);
-}
-
-void	double_rotate(t_node **stack_1, t_node **stack_2)
-{
-	rotate(stack_1);
-	rotate(stack_2);
-	ft_printf("rr\n");
 }
