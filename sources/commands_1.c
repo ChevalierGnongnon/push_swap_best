@@ -6,32 +6,32 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:13:02 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:48:21 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:27:08 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_node **head)
+void	swap(t_node **stack)
 {
 	t_node	*temp_node;
 
-	if (head && (*head)->next)
+	if (stack && (*stack)->next)
 	{
-		temp_node = (*head)->next;
-		(*head)->next = (*head)->next->next;
-		temp_node->next = (*head);
-		(*head) = temp_node;
-		ft_printf("s%c\n", (*head)->stack);
+		temp_node = (*stack)->next;
+		(*stack)->next = (*stack)->next->next;
+		temp_node->next = (*stack);
+		(*stack) = temp_node;
+		ft_printf("s%c\n", (*stack)->stack);
 	}
 }
 
-int	double_swap(t_node **head1, t_node **head2)
+int	double_swap(t_node **stack_1, t_node **stack_2)
 {
-	if ((head1 && (*head1)->next) && (head2 && (*head2)->next))
+	if ((stack_1 && (*stack_1)->next) && (stack_2 && (*stack_2)->next))
 	{
-		swap(head1);
-		swap(head2);
+		swap(stack_1);
+		swap(stack_2);
 		ft_printf("ss\n");
 	}
 	return (0);
@@ -54,22 +54,22 @@ void	push(t_node **from, t_node **to)
 		ft_printf("pa\n");
 }
 
-void	rotate(t_node **head)
+void	rotate(t_node **stack)
 {
 	t_node	*last;
 	t_node	*temp;
 
-	temp = (*head);
-	(*head) = (*head)->next;
-	last = get_last(head);
+	temp = (*stack);
+	(*stack) = (*stack)->next;
+	last = get_last(stack);
 	temp->next = NULL;
 	last->next = temp;
-	ft_printf("r%c\n", (*head)->stack);
+	ft_printf("r%c\n", (*stack)->stack);
 }
 
-void	double_rotate(t_node **head1, t_node **head2)
+void	double_rotate(t_node **stack_1, t_node **stack_2)
 {
-	rotate(head1);
-	rotate(head2);
+	rotate(stack_1);
+	rotate(stack_2);
 	ft_printf("rr\n");
 }

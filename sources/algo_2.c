@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:35:55 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/09 15:19:47 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:36:44 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	do_best(t_node **stack_a, t_node **stack_b, t_node *best)
 	else
 		go_up(stack_b, get_under(best, stack_b));
 	push(stack_a, stack_b);
-
 }
 
 void	big_sort(t_node **stack_a, t_node **stack_b)

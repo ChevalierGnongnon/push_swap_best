@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:37:14 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/09 15:46:47 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:15:57 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ t_node	*get_under(t_node *node, t_node **head)
 	t_node	*current;
 	t_node	*under;
 
-	under = malloc(sizeof(t_node *));
+	under = get_min(head);
 	current = (*head);
-	under->value = INT_MIN;
-	under->next = NULL;
-	under->stack = 'b';
 	while (current)
 	{
 		if (current->value < node->value)

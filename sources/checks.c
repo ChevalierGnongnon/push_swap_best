@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:38:12 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:51:20 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:23:17 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int	check_numeric(int argc, char **argv)
 	return (1);
 }
 
-int	check_doubles(t_node **head)
+int	check_doubles(t_node **stack)
 {
 	t_node	*current;
 	t_node	*next_one;
 
-	current = (*head);
+	current = (*stack);
 	while (current->next)
 	{
 		next_one = current->next;
@@ -56,15 +56,15 @@ int	check_doubles(t_node **head)
 	return (1);
 }
 
-int	check_sorted(t_node **chain)
+int	check_sorted(t_node **stack)
 {
 	t_node	*current;
 	t_node	*previous;
 
-	if (!(*chain) || !(*chain)->next)
+	if (!(*stack) || !(*stack)->next)
 		return (1);
-	previous = (*chain);
-	current = (*chain)->next;
+	previous = (*stack);
+	current = (*stack)->next;
 	while (current)
 	{
 		if (previous->value < current->value)
@@ -78,23 +78,14 @@ int	check_sorted(t_node **chain)
 	return (1);
 }
 
-void	check_stackb_begin(t_node **stack_b)
-{
-	if ((*stack_b)->value < (*stack_b)->next->value)
-	{	
-		ft_printf("rb\n");
-		rotate(stack_b);
-	}
-}
-
-int	check_small(t_node *target, t_node **head)
+int	check_small(t_node *target, t_node **stack)
 {
 	t_node	*current;
 	int		size;
 	int		i;
 
-	current = (*head);
-	size = chain_size(head);
+	current = (*stack);
+	size = chain_size(stack);
 	i = 0;
 	while (current && current->value > target->value)
 	{
