@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:14:26 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/10 12:28:49 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:34:21 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ typedef struct s_node
 
 int		check_numeric(int argc, char **argv);
 int		check_doubles(t_node **start);
-int		check_sorted(t_node **chain);
-void	check_stackb_begin(t_node **stack_b);
+int		check_sorted(t_node **chain); 
 
 t_node	*create_node(int value);
 t_node	*create_chain(char **argv);
@@ -34,12 +33,9 @@ void	clear_list(t_node **head);
 void	change_stack(t_node *node);
 
 void	swap(t_node **head);
-int		double_swap(t_node **head1, t_node **head2);
 void	push(t_node **from, t_node **to);
 void	rotate(t_node **head);
-void	double_rotate(t_node **head1, t_node **head2);
 void	reverse_rotate(t_node **head);
-void	double_reverse_rotate(t_node **head1, t_node **head2);
 
 int		chain_size(t_node **lst);
 
@@ -58,7 +54,6 @@ void	small_sort(t_node **stack_a);
 void	big_sort(t_node **stack_a, t_node **stack_b);
 t_node	*get_min(t_node **head);
 t_node	*get_max(t_node **head);
-void	try_algo(t_node **stack_a, t_node **stack_b);
 
 void	do_swap(t_node **stack);
 void	do_double_swap(t_node **stack_a, t_node **stack_b);

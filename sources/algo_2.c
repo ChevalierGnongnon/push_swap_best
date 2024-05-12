@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:35:55 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/10 09:36:44 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:37:53 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	go_up(t_node **stack, t_node *target)
 	if (rotation_sense(stack, target))
 	{
 		while ((*stack)->value != target->value)
-			reverse_rotate(stack);
+			do_reverse_rotate(stack);
 	}
 	else
 	{
 		while ((*stack)->value != target->value)
-			rotate(stack);
+			do_rotate(stack);
 	}
 }
 
@@ -35,7 +35,7 @@ void	replace_in_a(t_node **stack_a, t_node **stack_b)
 	{
 		if (get_last(stack_a)->value > (*stack_b)->value && rotate_available)
 		{
-			reverse_rotate(stack_a);
+			do_reverse_rotate(stack_a);
 			rotate_available--;
 		}
 		else
