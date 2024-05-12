@@ -1,18 +1,19 @@
 LIBFT = libft/libft.a
 
-SOURCES = sources/main.c \
-			sources/nodes.c \
+SOURCES = sources/algo_1.c \
+			sources/algo_2.c \
+			sources/checks.c \
 			sources/commands_1.c \
 			sources/commands_2.c \
-			sources/checks.c \
-			sources/utils_lists.c \
-			sources/utils_nodes.c \
-			sources/algo_1.c \
-			sources/algo_2.c \
-			sources/small_sort.c \
+			sources/counting.c \
 			sources/do_rotates.c \
 			sources/do_swap.c \
-			sources/counting.c
+			sources/double_action.c \
+			sources/main.c \
+			sources/nodes.c \
+			sources/small_sort.c \
+			sources/utils_lists.c \
+			sources/utils_nodes.c 
 			
 OBJS = $(SOURCES:.c=.o)
 
