@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 15:30:47 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:51:58 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:50:49 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,16 @@ int	count(t_node **head1, t_node **head2, t_node *target)
 
 	under = get_under(target, head2);
 	if (!check_small(target, head2))
-		moves = count_up(head1, target) + 2;
+		moves = count_up(head1, target) + 1;
 	else
-		moves = count_up(head1, target) + 1 + count_up(head2, under) + 2;
+	{
+		if (get_place(head1, target->value) == get_place(head2, under->value)
+			&& (rotation_sense(head1, target) == rotation_sense(head2, under))
+			&& !rotation_sense(head1, target))
+			moves = count_up(head1, target) + 1;
+		else
+			moves = count_up(head1, target) + 1 + count_up(head2, under);
+	}
 	return (moves);
 }
 

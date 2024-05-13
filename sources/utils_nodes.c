@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 12:15:40 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:51:46 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/12 16:05:25 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_place(t_node **head, int target_value)
 
 	current = (*head);
 	place = 1;
-	while (current && current->value != target_value)
+	while (current->next && current->value != target_value)
 	{
 		place++;
 		current = current->next;

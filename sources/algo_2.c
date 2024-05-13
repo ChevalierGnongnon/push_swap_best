@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:35:55 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/10 12:37:53 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:38:15 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,27 @@ void	replace_in_a(t_node **stack_a, t_node **stack_b)
 
 void	do_best(t_node **stack_a, t_node **stack_b, t_node *best)
 {
-	go_up(stack_a, best);
+	t_node	*under;
+
+	under = get_under(best, stack_b);
 	if (best->value > get_max(stack_b)->value
 		|| best->value < get_min(stack_b)->value)
+	{
+		go_up(stack_a, best);
 		go_up(stack_b, get_max(stack_b));
+	}
 	else
-		go_up(stack_b, get_under(best, stack_b));
+	{
+		if (get_place(stack_a, best->value) == get_place(stack_b, under->value)
+			&& (rotation_sense(stack_a, best) == rotation_sense(stack_b, under))
+			&& !rotation_sense(stack_a, best))
+			doublerup(stack_a, stack_b, best, under);
+		else
+		{
+			go_up(stack_a, best);
+			go_up(stack_b, under);
+		}
+	}
 	push(stack_a, stack_b);
 }
 
