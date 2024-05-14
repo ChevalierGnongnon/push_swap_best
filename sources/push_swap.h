@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:14:26 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/13 15:15:50 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/14 11:28:06 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_node
 
 int		check_numeric(int argc, char **argv);
 int		check_doubles(t_node **start);
-int		check_sorted(t_node **chain); 
+int		check_sorted(t_node **chain);
 
 t_node	*create_node(int value);
 t_node	*create_chain(char **argv);
@@ -61,7 +61,6 @@ void	do_rotate(t_node **stack);
 void	do_double_rotate(t_node **stack_a, t_node **stack_b);
 void	do_reverse_rotate(t_node **stack);
 void	do_double_reverse_rotate(t_node **stack_a, t_node **stack_b);
-void	doublerup(t_node **stac_a, t_node **stac_b, t_node *best, t_node *under);
-void	doublerrup(t_node **stac_a, t_node **stac_b, t_node *best, t_node *under);
+void	doublerup(t_node **staca, t_node **stacb, t_node *best, t_node *under);
 
 #endif

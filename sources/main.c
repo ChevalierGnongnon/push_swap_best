@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:12:48 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/12 16:05:44 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:44:49 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	main(int argc, char **argv)
 		else
 			big_sort(&stack_a, &stack_b);
 	}
+	else
+		ft_putstr_fd("Error\n", 2);
 	clear_list(&stack_a);
 	clear_list(&stack_b);
 }

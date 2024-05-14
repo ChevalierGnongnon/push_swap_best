@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:35:55 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/13 15:38:15 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:54:12 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	do_best(t_node **stack_a, t_node **stack_b, t_node *best)
 	}
 	else
 	{
-		if (get_place(stack_a, best->value) == get_place(stack_b, under->value)
-			&& (rotation_sense(stack_a, best) == rotation_sense(stack_b, under))
-			&& !rotation_sense(stack_a, best))
+		if (rotation_sense(stack_a, best) == rotation_sense(stack_b, under)
+			&& !rotation_sense(stack_a, best)
+			&& !rotation_sense(stack_b, under))
 			doublerup(stack_a, stack_b, best, under);
 		else
 		{

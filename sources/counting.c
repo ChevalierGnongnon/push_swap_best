@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 15:30:47 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/13 15:50:49 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:21:13 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	count_up(t_node **head, t_node *target)
 int	count(t_node **head1, t_node **head2, t_node *target)
 {
 	int		moves;
+	int		dif;
 	t_node	*under;
 
 	under = get_under(target, head2);
@@ -51,10 +52,15 @@ int	count(t_node **head1, t_node **head2, t_node *target)
 		moves = count_up(head1, target) + 1;
 	else
 	{
-		if (get_place(head1, target->value) == get_place(head2, under->value)
-			&& (rotation_sense(head1, target) == rotation_sense(head2, under))
+		if ((rotation_sense(head1, target) == rotation_sense(head2, under))
 			&& !rotation_sense(head1, target))
-			moves = count_up(head1, target) + 1;
+		{
+			if (count_up(head2, under) > count_up(head1, target))
+				dif = count_up(head2, under) - count_up(head1, target);
+			else
+				dif = count_up(head1, target) - count_up(head2, under);
+			moves = count_up(head1, target) + 1 + dif;
+		}
 		else
 			moves = count_up(head1, target) + 1 + count_up(head2, under);
 	}
