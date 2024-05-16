@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:12:34 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/28 15:13:12 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:21:23 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_node	*create_chain(char **argv)
 	int		i;
 	t_node	*first;
 	t_node	*current;
+	int		value;
 
 	i = 1;
 	first = create_node(ft_atoi(argv[i]));
@@ -35,7 +36,13 @@ t_node	*create_chain(char **argv)
 	current = first;
 	while (argv[i])
 	{
-		current->next = create_node(ft_atoi(argv[i]));
+		value = ft_atol(argv[i]);
+		if (value > INT_MAX || value < INT_MIN)
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (NULL);
+		}
+		current->next = create_node(value);
 		current = current->next;
 		i++;
 	}

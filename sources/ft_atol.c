@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 08:41:16 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/16 16:17:00 by chhoflac         ###   ########.fr       */
+/*   Created: 2024/05/16 16:18:42 by chhoflac          #+#    #+#             */
+/*   Updated: 2024/05/16 16:19:28 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static int	ft_pass_empty(const char *nptr)
 {
@@ -35,12 +35,12 @@ static int	ft_transform(const char *nptr, int key)
 	return (nb);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int	i;
-	int	cnt;
-	int	nb;
-	int	mult;
+	int		i;
+	int		cnt;
+	long	nb;
+	int		mult;
 
 	mult = 1;
 	cnt = 0;

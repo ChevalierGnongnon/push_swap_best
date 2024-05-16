@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:14:26 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/16 14:56:04 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:20:02 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	do_double_rotate(t_node **stack_a, t_node **stack_b);
 void	do_reverse_rotate(t_node **stack);
 void	do_double_reverse_rotate(t_node **stack_a, t_node **stack_b);
 void	doublerup(t_node **staca, t_node **stacb, t_node *best, t_node *under);
+long	ft_atol(const char *nptr);
 
 #endif

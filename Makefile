@@ -13,6 +13,7 @@ SOURCES = sources/algo_1.c \
 			sources/nodes.c \
 			sources/small_sort.c \
 			sources/utils_lists.c \
+			sources/ft_atol.c \
 			sources/utils_nodes.c 
 			
 OBJS = $(SOURCES:.c=.o)
