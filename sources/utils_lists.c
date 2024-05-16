@@ -6,19 +6,19 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 08:42:39 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/04/30 15:53:06 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:05:54 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	chain_size(t_node **lst)
+int	chain_size(t_node **stack)
 {
 	int		i;
 	t_node	*temp;
 
 	i = 0;
-	temp = (*lst);
+	temp = (*stack);
 	while (temp)
 	{
 		temp = temp->next;
@@ -27,25 +27,25 @@ int	chain_size(t_node **lst)
 	return (i);
 }
 
-t_node	*get_last(t_node **lst)
+t_node	*get_last(t_node **stack)
 {
 	t_node	*buffer;
 
-	buffer = (*lst);
+	buffer = (*stack);
 	while (buffer->next)
 		buffer = buffer->next;
 	return (buffer);
 }
 
-void	clear_list(t_node **list)
+void	clear_list(t_node **stack)
 {
 	t_node	*current;
 
-	while ((*list))
+	while ((*stack))
 	{
-		current = (*list)->next;
-		free((*list));
-		(*list) = current;
+		current = (*stack)->next;
+		free((*stack));
+		(*stack) = current;
 	}
 }
 

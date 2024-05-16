@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:12:48 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/16 11:36:17 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:00:50 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ t_node	*check_everything(int argc, char **argv)
 	if (argc > 2 && check_numeric(argc, argv))
 	{
 		stack_a = create_chain(argv);
-		if (check_doubles(&stack_a) && !check_sorted(&stack_a))
+		if (stack_a && check_doubles(&stack_a))
 			return (stack_a);
 	}
+	clear_list(&stack_a);
 	return (NULL);
 }
 

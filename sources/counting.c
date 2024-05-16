@@ -6,19 +6,19 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 15:30:47 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/14 17:21:13 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/16 13:58:39 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_up(t_node **head, t_node *target)
+int	count_up(t_node **stack, t_node *target)
 {
 	int		i;
 	t_node	*current;
 
 	i = 0;
-	if (rotation_sense(head, target))
+	if (rotation_sense(stack, target))
 	{
 		current = target->next;
 		while (current)
@@ -28,9 +28,9 @@ int	count_up(t_node **head, t_node *target)
 		}
 		return (i + 1);
 	}
-	else if (!rotation_sense(head, target))
+	else if (!rotation_sense(stack, target))
 	{
-		current = (*head);
+		current = (*stack);
 		while (current != target)
 		{
 			i++;
@@ -41,43 +41,43 @@ int	count_up(t_node **head, t_node *target)
 	return (0);
 }
 
-int	count(t_node **head1, t_node **head2, t_node *target)
+int	count(t_node **stack1, t_node **stack2, t_node *target)
 {
 	int		moves;
 	int		dif;
 	t_node	*under;
 
-	under = get_under(target, head2);
-	if (!check_small(target, head2))
-		moves = count_up(head1, target) + 1;
+	under = get_under(target, stack2);
+	if (!check_small(target, stack2))
+		moves = count_up(stack1, target) + 1;
 	else
 	{
-		if ((rotation_sense(head1, target) == rotation_sense(head2, under))
-			&& !rotation_sense(head1, target))
+		if ((rotation_sense(stack1, target) == rotation_sense(stack2, under))
+			&& !rotation_sense(stack1, target))
 		{
-			if (count_up(head2, under) > count_up(head1, target))
-				dif = count_up(head2, under) - count_up(head1, target);
+			if (count_up(stack2, under) > count_up(stack1, target))
+				dif = count_up(stack2, under) - count_up(stack1, target);
 			else
-				dif = count_up(head1, target) - count_up(head2, under);
-			moves = count_up(head1, target) + 1 + dif;
+				dif = count_up(stack1, target) - count_up(stack2, under);
+			moves = count_up(stack1, target) + 1 + dif;
 		}
 		else
-			moves = count_up(head1, target) + 1 + count_up(head2, under);
+			moves = count_up(stack1, target) + 1 + count_up(stack2, under);
 	}
 	return (moves);
 }
 
-t_node	*get_best(t_node **head1, t_node **head2)
+t_node	*get_best(t_node **stack1, t_node **stack2)
 {
 	t_node	*current;
 	t_node	*best;
 
-	current = (*head1);
+	current = (*stack1);
 	best = current;
 	while (current)
 	{
-		if (count(head1, head2, current)
-			< count(head1, head2, best))
+		if (count(stack1, stack2, current)
+			< count(stack1, stack2, best))
 			best = current;
 		current = current->next;
 	}
