@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:38:12 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/16 11:07:58 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:36:58 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_numeric(int argc, char **argv)
 			j++;
 		while (argv[i][j])
 		{
-			if (ft_isdigit(argv[i][j]))
+			if (argv[i][j] > '0' && argv[i][j] < '9')
 				j++;
 			else
 				return (0);
