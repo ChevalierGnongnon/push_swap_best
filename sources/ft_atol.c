@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:18:42 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/16 16:19:28 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/17 18:02:32 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int	ft_pass_empty(const char *nptr)
 	return (i);
 }
 
-static int	ft_transform(const char *nptr, int key)
+static long	ft_transform(const char *nptr, long key)
 {
-	int	nb;
+	long	nb;
 
 	nb = 0;
 	while (nptr[key] >= '0' && nptr[key] <= '9')
