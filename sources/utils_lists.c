@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 08:42:39 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/16 14:05:54 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/20 18:21:50 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_node	*get_last(t_node **stack)
 	return (buffer);
 }
 
-void	clear_list(t_node **stack)
+void	*clear_list(t_node **stack)
 {
 	t_node	*current;
 
@@ -47,6 +47,7 @@ void	clear_list(t_node **stack)
 		free((*stack));
 		(*stack) = current;
 	}
+	return (NULL);
 }
 
 t_node	*get_min(t_node **stack)

@@ -6,7 +6,7 @@
 /*   By: chhoflac <chhoflac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 08:12:48 by chhoflac          #+#    #+#             */
-/*   Updated: 2024/05/19 16:14:49 by chhoflac         ###   ########.fr       */
+/*   Updated: 2024/05/20 18:22:00 by chhoflac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,24 @@ t_node	*check_everything(int argc, char **argv)
 {
 	t_node	*stack_a;
 
-	if (argc > 1 && check_numeric(argc, argv))
+	if (argc > 1)
 	{
+		if (!check_numeric(argc, argv))
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (NULL);
+		}
 		stack_a = create_chain(argv);
-		if (stack_a && check_doubles(&stack_a) && !check_sorted(&stack_a))
-			return (stack_a);
-		else if (check_sorted(&stack_a))
-			clear_list(&stack_a);
-		else if (!stack_a || !check_doubles(&stack_a))
+		if (!stack_a || !check_doubles(&stack_a))
 		{
 			ft_putstr_fd("Error\n", 2);
 			clear_list(&stack_a);
 		}
+		if (!check_sorted(&stack_a))
+			return (stack_a);
+		else
+			clear_list(&stack_a);
 	}
-	else if (!check_numeric(argc, argv))
-		ft_putstr_fd("Error\n", 2);
 	return (NULL);
 }
 
